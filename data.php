@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
-    <body style = "background-color:grey;">
 <?php
     header('Content-Type: application/json; charset=utf-8');
 	$servername = "localhost";
@@ -22,15 +16,13 @@
         
     if($res->num_rows > 0) {
         while($i = $res->fetch_assoc()){
-            print json_encode('<h1>'.$i ["quote"].'</h1>');
-            print json_encode ('<h3>'.$i ["author"].'</h3>');
+            print json_encode($i);
         }
     }
     else{
-        print json_encode("-1");
+        $a = "-1";
+        print json_encode($a);
     }
     
     $con->close();
 ?>
-    </body>
-</html>
