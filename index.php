@@ -8,7 +8,7 @@
 	$servername = "localhost";
 	$user = "quotout";
 	$pw = "qu0t_";
-    $db = "phpmyadmin";
+    $db = "citation";
 
 	$con = new mysqli($servername, $user, $pw, $db);
 
@@ -22,7 +22,7 @@
     if($res->num_rows > 0) {
         while($i = $res->fetch_assoc()){
             echo  '<h1>'.$i ["quote"].'</h1>';
-            echo  '<h3>'.$i ["author"].'</h3>';
+            echo  '<h4>'.$i ["author"].'</h4>';
         }
     }
     else{
