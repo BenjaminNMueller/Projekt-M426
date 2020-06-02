@@ -1,35 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang='de'>
     <head>
+        <meta charset='utf-8' />
         <link rel="stylesheet" href="css/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
     </head>
     <body style = "background-color:grey;">
-<?php
-	$servername = "localhost";
-	$user = "quotout";
-	$pw = "qu0t_";
-    $db = "citation";
-
-	$con = new mysqli($servername, $user, $pw, $db);
-
-	if($con->connect_error) {
-	   die("-1".$con->connect_error);
-	}
-    $zufallszahl = rand(1,10);
-    $sql = "SELECT * FROM citation WHERE ID = ". $zufallszahl;
-    $res = $con->query($sql);
-        
-    if($res->num_rows > 0) {
-        while($i = $res->fetch_assoc()){
-            echo  '<h1>'.$i ["quote"].'</h1>';
-            echo  '<h4>'.$i ["author"].'</h4>';
-        }
-    }
-    else{
-        echo "-1" . $con->error;
-    }
-    
-    $con->close();
-?>
+        <h1 class="quote"></h1>
+        <h3 class="author"></h3>
     </body>
 </html>
